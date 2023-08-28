@@ -19,9 +19,13 @@ function bookTitleExists(checkTitle){
     return checkBoolean;
 
 }
-
 function resetBookGrid(){
     gridArea.innerHTML = '';
+}
+
+function buttonTest(e) {
+    let currentTitle = e.target.parentNode.firstChild.innerText;
+    removeBookFromLibrary(currentTitle);
 }
 
 function addAllBooksToGrid(){
@@ -32,19 +36,23 @@ function addAllBooksToGrid(){
         let title = document.createElement('div');
         let pages = document.createElement('div');
         let isRead = document.createElement('div');
+        let deleteButton = document.createElement('button');  
         author.setAttribute("class", "bookGridItemIndividual");
         title.setAttribute("class", "bookGridItemIndividual");
         pages.setAttribute("class", "bookGridItemIndividual");
         isRead.setAttribute("class", "bookGridItemIndividual");
+        // deleteButton.setAttribute("class", "bookGridItemIndividual");
         author.textContent += item.author;
         title.textContent +=item.title;
         isRead.textContent +=item.hasRead;
         pages.textContent +=item.pages;
+        deleteButton.textContent += "DeleteButton";
+        deleteButton.onclick = buttonTest;
         box.appendChild(title);
         box.appendChild(author);
         box.appendChild(pages);
         box.appendChild(isRead);
-
+        box.appendChild(deleteButton);
         gridArea.appendChild(box);
     })
 }
@@ -63,11 +71,6 @@ function addBookToLibrary(newTitle, newAuthor,newPages, newRead){
     
 }
 
-// function addBookToBoard(){
-//     myLibrary.forEach((item) => {
-
-//     })
-// }
 
 
 function removeBookFromLibrary(removeTitle){
@@ -89,5 +92,3 @@ addBookToLibrary("SHeesh", "hhh", 30, true);
 removeBookFromLibrary("SHeesh");
 console.log(myLibrary)
 
-//with above codes, I can add books and remove them using titles. 
-//Duplicate titles will not be allowed with something like this.
