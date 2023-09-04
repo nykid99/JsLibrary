@@ -1,4 +1,12 @@
 const gridArea = document.getElementById("bookGridArea");
+const form = document.getElementById('bookSubmitForm');
+
+//variables for the modal
+var modal = document.getElementById("modalArea");
+var btn = document.getElementById("modalButton");
+var span = document.getElementsByClassName("close")[0];
+
+
 myLibrary = [];
 function Book(title, author, pages, hasRead){
     this.title = title
@@ -118,9 +126,60 @@ function checkBoxUpdate(e){
 
 }
 
+
+//just a test function
 function testConsole(){
     console.log("checkbox triggered");
 }
+
+//codes for the modal functionality
+
+//when user clicks button, opens the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// when user clicks on the span element, it closes the modal
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+//when user clicks anywhere outside the modal, close it
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+//codes for the form submit
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const bookTitle = document.getElementById('bookTitle').value 
+    const bookAuthor = document.getElementById('bookAuthor').value 
+    const bookPages = document.getElementById('bookPages').value 
+    const bookHasRead = document.getElementById('bookHasRead').checked
+
+    if(bookTitleExists(bookTitle)){
+        bookTitle
+    }
+    else{
+        addBookToLibrary(bookTitle,bookAuthor,bookPages,bookHasRead);
+        modal.style.display = "none";
+        form.reset();
+    }
+
+   
+})
+
+
+// watch this to tidy up form validation and styling
+
+// https://www.youtube.com/watch?v=CYlNJpltjMM&ab_channel=JavaScriptAcademy
+
+
+
 //this works!
 // myLibrary.map(console.log("hee") )
 addBookToLibrary("Harry Potter", "JK Rowling", 500, true);

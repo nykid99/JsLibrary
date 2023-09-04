@@ -13,7 +13,24 @@
 <body>
     <div>
         <header id = "header">Contains buttons and title</header>
-        <button onclick = "">Add Book</button>
+        <button id = "modalButton">Add Book</button>
+
+        <div id = "modalArea">
+            <div id = "modalContent">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+                <form id = "bookSubmitForm">
+                    <input type = "text" id = "bookTitle" required><br>
+                    <input type = "text" id = "bookAuthor"required><br>
+                    <input type = "number" min = "1" id = "bookPages"required><br>
+                    <input type = "checkbox" id = "bookHasRead"><br>
+                    <!-- <div id = "checkBoxContainer">
+                        
+                    </div> -->
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
     </div>
 
     <div id = "bookGridArea">
