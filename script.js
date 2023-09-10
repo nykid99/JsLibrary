@@ -1,11 +1,11 @@
 const gridArea = document.getElementById("bookGridArea");
-const form = document.getElementById('bookSubmitForm');
+var form = document.getElementById('bookSubmitForm');
 
 //variables for the modal
 var modal = document.getElementById("modalArea");
 var btn = document.getElementById("modalButton");
 var span = document.getElementsByClassName("close")[0];
-
+var errorMessageArea = document.getElementById("error-Message");
 
 myLibrary = [];
 function Book(title, author, pages, hasRead){
@@ -34,6 +34,13 @@ function resetBookGrid(){
 function removeBookFromGrid(e) {
     let currentTitle = e.target.parentNode.firstChild.innerText;
     removeBookFromLibrary(currentTitle);
+}
+function addErrorMessageToModal() {
+    let errorMessage = document.createElement('div');
+    errorMessage.textContent += "This title already exists";
+    modal.appendChild(errorMessage);
+
+
 }
 
 function addAllBooksToGrid(){
@@ -87,6 +94,7 @@ function addBookToLibrary(newTitle, newAuthor,newPages, newRead){
         addAllBooksToGrid();
     }
     else{
+        errorMessageArea.textContent = "Whoops";
         console.log("this book exists");
     }
 
@@ -101,8 +109,6 @@ function removeBookFromLibrary(removeTitle){
         resetBookGrid();
         addAllBooksToGrid();
     }
-    
-
 }
 
 function checkBoxUpdate(e){
@@ -143,12 +149,16 @@ btn.onclick = function() {
 
 span.onclick = function() {
     modal.style.display = "none";
+    errorMessageArea.textContent = "";
+    form.reset();
 }
 //when user clicks anywhere outside the modal, close it
 
 window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
+      errorMessageArea.textContent = "";
+      form.reset();
     }
   }
 
@@ -162,7 +172,9 @@ form.addEventListener('submit', function(event) {
     const bookHasRead = document.getElementById('bookHasRead').checked
 
     if(bookTitleExists(bookTitle)){
-        bookTitle
+
+        console.log("Shit it exists!");
+        errorMessageArea.textContent = "Hello";
     }
     else{
         addBookToLibrary(bookTitle,bookAuthor,bookPages,bookHasRead);

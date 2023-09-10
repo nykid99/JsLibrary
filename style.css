@@ -160,9 +160,13 @@ input[type=number] {
 
 #checkBoxContainer{
   width: 100px;
-  position: absolut
+  position: absolute
   /* border: 2px solid red; */
 }
 #bookSubmitForm{
 
+}
+#error-Message{
+  color: red;
+  height: 30px;
 }
