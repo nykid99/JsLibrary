@@ -57,14 +57,13 @@ function addAllBooksToGrid(){
         title.setAttribute("class", "bookGridItemIndividual");
         pages.setAttribute("class", "bookGridItemIndividual");
         isRead.setAttribute("class", "bookGridItemIndividual");
-        isReadCheckBox.setAttribute("class", "bookGridItemIndividual");
         isReadCheckBox.type = "checkbox";
-        // deleteButton.setAttribute("class", "bookGridItemIndividual");
+        // isReadCheckBox.setAttribute("id", "checkBoxContainer");
+        deleteButton.setAttribute("id", "removeButton");
         author.textContent += item.author;
         title.textContent +=item.title;
-        isRead.textContent +=item.hasRead;
         pages.textContent +=item.pages;
-        deleteButton.textContent += "DeleteButton";
+        deleteButton.textContent += "Remove";
         deleteButton.onclick = removeBookFromGrid;
 
         if(item.hasRead){
@@ -79,7 +78,8 @@ function addAllBooksToGrid(){
         box.appendChild(author);
         box.appendChild(pages);
         // box.appendChild(isRead);
-        box.appendChild(isReadCheckBox);
+        isRead.appendChild(isReadCheckBox)
+        box.appendChild(isRead);
         box.appendChild(deleteButton);
 
         gridArea.appendChild(box);
@@ -173,7 +173,6 @@ form.addEventListener('submit', function(event) {
 
     if(bookTitleExists(bookTitle)){
 
-        console.log("Shit it exists!");
         errorMessageArea.textContent = "Hello";
     }
     else{
