@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png"/>
 
 
     
-    <title>Document</title>
+
+
+    
+    <title>MyLibrary</title>
 </head>
 <body>
     <div>
@@ -20,16 +25,25 @@
 
         <div id = "modalArea">
             <div id = "modalContent">
-                <span class="close">&times;</span>
-                <p id = "error-Message"></p>
+                <div id = "addBookHeader">
+                    <div id = "addBookHeaderText">
+                        Add A book
+                    </div>
+                    <span class="close">&times;</span>
+                </div>
+
+
                 <form id = "bookSubmitForm">
-                    <input type = "text" id = "bookTitle" required><br>
-                    <input type = "text" id = "bookAuthor"required><br>
-                    <input type = "number" min = "1" id = "bookPages"required><br>
-                    <input type = "checkbox" id = "bookHasRead"><br>
-                    <!-- <div id = "checkBoxContainer">
-                        
-                    </div> -->
+                    <p id = "error-Message"></p>
+                    <input type = "text" id = "bookTitle" placeholder = "Title" required><br>
+
+                    <input type = "text" id = "bookAuthor"placeholder = "Author" required><br>
+                    <input type = "number" min = "1" id = "bookPages" placeholder = "Pages"required><br>
+
+                    <div id = "checkBoxContainer">
+                        <div>Have you Read it?</div>
+                        <input type = "checkbox" id = "bookHasRead"><br>
+                    </div>
                     <input type="submit" value="Submit">
                 </form>
             </div>

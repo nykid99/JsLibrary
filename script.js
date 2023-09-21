@@ -56,14 +56,16 @@ function addAllBooksToGrid(){
         author.setAttribute("class", "bookGridItemIndividual");
         title.setAttribute("class", "bookGridItemIndividual");
         pages.setAttribute("class", "bookGridItemIndividual");
-        isRead.setAttribute("class", "bookGridItemIndividual");
+        isRead.setAttribute("class", "bookGridItemIndividualDivider");
         isReadCheckBox.type = "checkbox";
         // isReadCheckBox.setAttribute("id", "checkBoxContainer");
         deleteButton.setAttribute("id", "removeButton");
         author.textContent += item.author;
         title.textContent +=item.title;
         pages.textContent +=item.pages;
+        pages.textContent += " Pages";
         deleteButton.textContent += "Remove";
+        isRead.textContent += "Read?"
         deleteButton.onclick = removeBookFromGrid;
 
         if(item.hasRead){
@@ -173,7 +175,7 @@ form.addEventListener('submit', function(event) {
 
     if(bookTitleExists(bookTitle)){
 
-        errorMessageArea.textContent = "Hello";
+        errorMessageArea.textContent = "Title already Exists";
     }
     else{
         addBookToLibrary(bookTitle,bookAuthor,bookPages,bookHasRead);
