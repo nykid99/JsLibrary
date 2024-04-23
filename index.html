@@ -27,7 +27,7 @@
             <div id = "modalContent">
                 <div id = "addBookHeader">
                     <div id = "addBookHeaderText">
-                        Add A book
+                        Add a book
                     </div>
                     <span class="close">&times;</span>
                 </div>
@@ -35,16 +35,28 @@
 
                 <form id = "bookSubmitForm">
                     <p id = "error-Message"></p>
-                    <input type = "text" id = "bookTitle" placeholder = "Title" required><br>
-
-                    <input type = "text" id = "bookAuthor"placeholder = "Author" required><br>
-                    <input type = "number" min = "1" id = "bookPages" placeholder = "Pages"required><br>
+                    <div class = "modalInputContainer">
+                        <div class = "entryarea">
+                            <input type = "text" id = "bookTitle" placeholder = "" required>
+                            <div class = "labelline">Title</div>
+                        </div>
+    
+                        <div class = "entryarea">
+                            <input type = "text" id = "bookAuthor"placeholder = "" required>
+                            <div class = "labelline">Author</div>
+                        </div>
+                        <div class = "entryarea">
+                            <input type = "number" min = "1" id = "bookPages" placeholder = ""required>
+                            <div class = "labelline">Pages</div>
+                        </div>
+    
+                    </div>
 
                     <div id = "checkBoxContainer">
                         <div>Have you Read it?</div>
-                        <input type = "checkbox" id = "bookHasRead"><br>
+                        <input type = "checkbox" id = "bookHasRead">
                     </div>
-                    <input type="submit" value="Submit">
+                    <input type="submit" class = "submitButton" value="Submit">
                 </form>
             </div>
         </div>
@@ -53,6 +65,11 @@
     <div id = "bookGridArea">
         
     </div>
+
+
+    <footer class = "pageFooter">
+        <p>This is a simple footer.</p>
+    </footer>
 </body>
 </html>
 <script src = "script.js"></script>
